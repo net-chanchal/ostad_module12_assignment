@@ -1,0 +1,65 @@
+.bus-layout {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    max-width: 600px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border: solid 3px #b3b3b3;
+    min-height: 600px;
+}
+
+.seat {
+    width: 80px;
+    height: 80px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    color: #fff;
+    transition: background-color 0.3s;
+}
+
+.seat.available {
+    background-image: url("../seat_available.png");
+    cursor: pointer;
+}
+
+.seat.reserved {
+    background-image: url("../seat_reserved.png");
+    cursor: not-allowed;
+}
+
+.seat.selected {
+    background-color: #4e73df;
+}
+
+.aisle {
+    grid-column: span 2;
+}
+
+/* Hide the actual checkboxes */
+input[type="checkbox"] {
+    display: none;
+}
+
+/* Style the custom checkbox */
+input[type="checkbox"] + label {
+    width: 80px;
+    height: 80px;
+    background-image: url("../seat_disabled.png");
+    background-size: cover;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 13px;
+    transition: background-color 0.3s;
+}
+
+input[type="checkbox"]:checked + label {
+    background-image: url("../seat_selected.png");
+}
